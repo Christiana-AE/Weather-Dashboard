@@ -8,3 +8,24 @@ h1 {
     background-color: #0197f6;
     color: white;
 }
+
+.paragraph-border {
+    border-top: solid;
+    border-bottom: solid;
+    border-right: solid;
+    border-left: solid;
+    border-width: 2px;
+    border-color: aliceblue;
+    padding-left: 30px;
+    padding-right: 50px;
+}
+
+.card {
+    background-color: black;
+    display: flex;
+    justify-content: space-between ;
+}
+
+.card-text, .card h5 {
+    color: white;
+}
