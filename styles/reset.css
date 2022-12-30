@@ -22,10 +22,16 @@ h1 {
 
 .card {
     background-color: black;
-    display: flex;
-    justify-content: space-between ;
+    margin-right: 50px;
+    margin-bottom: 30px;
 }
 
 .card-text, .card h5 {
     color: white;
 }
+
+#main {
+    display: flex;
+    justify-content: space-between;
+}
+
