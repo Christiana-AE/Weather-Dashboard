@@ -1,0 +1,10 @@
+h1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 20px;
+    background-color: navy;
+}
+
+#search-button {
+    background-color: #0197f6;
+    color: white;
+}
