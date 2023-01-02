@@ -12,6 +12,7 @@
 </head>
 
 <body>
+  
   <header class="container-fluid text-center text-white p-2 weather-header">
     <h1>Weather Dashboard</h1>
   </header>
@@ -30,12 +31,12 @@
               <input class="form-input weather-search" type="text" id="search-input" placeholder="London"
                 aria-labelledby="form-heading" aria-controls="today forecast" />
               <div class="input-group-append">
-             <button type="submit" class="btn search-button" id="search-button" aria-label="submit search">
+                <button type="submit" class="btn search-button" id="search-button" aria-label="submit search">
                   Search
                 </button>
                 <hr class="hr weather-hr" />
               </div>
-          
+
             </div>
           </div>
         </form>
@@ -47,91 +48,86 @@
         <section id="today" class="mt-3" role="region" aria-live="polite"></section>
 
         <div class="jumbotron paragraph-border">
-          <h2 class="current-location">Current Location (Date) and image </h2>
+          <h2 class="current-location"><span id="current-location">London</span>
+            <span id="current-date">0</span>
+            <span id="current-weather-image"><img src="..."></span>
+          </h2>
           <hr class="my-4">
-          <p class="temperature">Temp: </p>
-          <p class="Wind">Wind: </p>
-          <p class="Humidity">Humidity: </p>
-         
+          <p class="temperature">Temp: <span id="current-temperature">0</span></p>
+          <p class="Wind">Wind: <span id="current-wind">0</span></p>
+          <p class="Humidity">Humidity: <span id="current-humidity">0</span></p>
+
         </div>
 
 
 
-<!--Section created to host the weather over the next five days -->
+        <!--Section created to host the weather over the next five days -->
 
 
         <section id="forecast" class="row mt-3" role="region" aria-live="polite"></section>
         <h3>5-Day Forecast: </h3>
-        <div class = "container-fluid">
-        <div class = "row">
+        <div class="container-fluid">
+          <div class="row">
 
-          <!--Day 1 forecast -->
+            <!--Day 1 forecast -->
 
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">Date</h5>
-            <img src="..." class="card-img" alt="...">
-            <p class="card-text">Temp: </p>
-            <p class="card-text">Wind: </p>
-            <p class="card-text">Humidity: </p>
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Date</h5>
+                <img src="..." class="card-img" alt="...">
+                <p class="card-text">Temp: <span id="day1-temperature">0</span></p>
+                <p class="card-text">Wind: <span id="day1-wind">0</span></p>
+                <p class="card-text">Humidity: <span id="day1-humidity">0</span></p>
+              </div>
+            </div>
+
+            <!--Day 2 forecast -->
+
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Date</h5>
+                <img src="..." class="card-img" alt="...">
+                <p class="card-text">Temp: <span id="day2-temperature">0</span></p>
+                <p class="card-text">Wind: <span id="day2-wind">0</span></p>
+                <p class="card-text">Humidity: <span id="day2-humidity">0</span></p>
+              </div>
+            </div>
+
+            <!--Day 3 forecast -->
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Date</h5>
+                <img src="..." class="card-img" alt="...">
+                <p class="card-text">Temp: <span id="day3-temperature">0</span></p>
+                <p class="card-text">Wind: <span id="day3-wind">0</span></p>
+                <p class="card-text">Humidity: <span id="day3-humidity">0</span></p>
+              </div>
+            </div>
+
+            <!--Day 4 forecast -->
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Date</h5>
+                <img src="..." class="card-img" alt="...">
+                <p class="card-text">Temp: <span id="day4-temperature">0</span></p>
+                <p class="card-text">Wind: <span id="day4-wind">0</span></p>
+                <p class="card-text">Humidity: <span id="day4-humidity">0</span></p>
+              </div>
+            </div>
+
+            <!--Day 5 forecast -->
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Date</h5>
+                <img src="..." class="card-img" alt="...">
+                <p class="card-text">Temp: <span id="day5-temperature">0</span></p>
+                <p class="card-text">Wind: <span id="day5-wind">0</span></p>
+                <p class="card-text">Humidity: <span id="day5-humidity">0</span></p>
+              </div>
+            </div>
+
           </div>
         </div>
-
-         <!--Day 2 forecast -->
-
-         <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">Date</h5>
-            <img src="..." class="card-img" alt="...">
-            <p class="card-text">Temp: </p>
-            <p class="card-text">Wind: </p>
-            <p class="card-text">Humidity: </p>
-          </div>
-        </div>
-
-        <!--Day 3 forecast --> 
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">Date</h5>
-            <img src="..." class="card-img" alt="...">
-            <p class="card-text">Temp: </p>
-            <p class="card-text">Wind: </p>
-            <p class="card-text">Humidity: </p>
-          </div>
-        </div>
-
-        <!--Day 4 forecast --> 
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">Date</h5>
-            <img src="..." class="card-img" alt="...">
-            <p class="card-text">Temp: </p>
-            <p class="card-text">Wind: </p>
-            <p class="card-text">Humidity: </p>
-          </div>
-        </div>
-
-        <!--Day 5 forecast -->
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">Date</h5>
-            <img src="..." class="card-img" alt="...">
-            <p class="card-text">Temp: </p>
-            <p class="card-text">Wind: </p>
-            <p class="card-text">Humidity: </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-
-
-
-
-
-
-
 
       </div>
     </div>
