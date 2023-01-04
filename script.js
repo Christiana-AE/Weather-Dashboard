@@ -2,9 +2,10 @@
 var APIKeys = "fcfb6b4def1fdec4f9ae7eeffda8c150";
 var cities = [];
 var cityName;
+var todaysDate = moment();
+
 
 // Generate the details for longitude and latitude and pass it to the URL to find city details
-
 function generateCoordinates() {
     // perform synchronous functions 
 
@@ -52,29 +53,46 @@ function renderPriorCitySearch() {
         
 }
 
+// Details for current day weather conditions
 function currentDateDetails() {
-    var todaysDate = moment().toString();
-    $("#current-date").text(todaysDate);
+    var todaysDateFormatted = todaysDate.format("DD/MM/YYYY");
+    $("#current-date").text("(" + todaysDateFormatted + ")");
 }
 
+// Details for day one forecast
 function forecastDayOne() {
+    var dayOneDate = moment().add(1, "days");
+    var dayOneDateFormatted = dayOneDate.format("DD/MM/YYYY");
+    $("#day-one-date").text(dayOneDateFormatted);
 
 }
 
+// Details for day two forecast
 function forecastDayTwo() {
-
+    var dayTwoDate = moment().add(2, "days");
+    var dayTwoDateFormatted = dayTwoDate.format("DD/MM/YYYY");
+    $("#day-two-date").text(dayTwoDateFormatted);
 }
 
+// Details for day three forecast
 function forecastDayThree() {
-
+    var dayThreeDate = moment().add(3, "days");
+    var dayThreeDateFormatted= dayThreeDate.format("DD/MM/YYYY");
+    $("#day-three-date").text(dayThreeDateFormatted);
 }
 
+// Details for day four forecast
 function forecastDayFour() {
-
+    var dayFourDate = moment().add(4, "days");
+    var dayFourDateFormatted = dayFourDate.format("DD/MM/YYYY");
+    $("#day-four-date").text(dayFourDateFormatted);
 }
 
+// Details for day five forecast
 function forecastDayFive() {
-
+    var dayFiveDate = moment().add(5, "days");
+    var dayFiveDateFormatted = dayFiveDate.format("DD/MM/YYYY");
+    $("#day-five-date").text(dayFiveDateFormatted);
 }
 
 
@@ -82,6 +100,11 @@ $('#search-button').on("click", function (e) {
     e.preventDefault();
     generateCoordinates();
     currentDateDetails();
+    forecastDayOne();
+    forecastDayTwo();
+    forecastDayThree();
+    forecastDayFour();
+    forecastDayFive();
     
 });
 
