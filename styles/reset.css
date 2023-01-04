@@ -7,6 +7,13 @@ h1 {
 #search-button {
     background-color: #0197f6;
     color: white;
+    width:max-content;
+    margin-bottom: 20px;
+}
+
+#search-input {
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 .paragraph-border {
@@ -33,5 +40,12 @@ h1 {
 #main {
     display: flex;
     justify-content: space-between;
+}
+
+.cities-searched {
+    margin-top: 20px;
+    display: block;
+    background-color:#a9a9a9;
+    width: 80%;
 }
 
