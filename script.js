@@ -24,10 +24,48 @@ function generateCoordinates() {
             //var humidity = response.list.main.humidity;
         });
     });
+
+    // Set Current Location to city being searched now 
+    $("#current-location").text(cityName);
+
+    // Add list of cities searched for to a list
+    for (var i = 0; i < cities.length; i++){
+        if (cities[i] !== cityName){
+            cities.push(cityName);
+        }
+    }
 }
+
+function currentDateDetails(){
+    var todaysDate = moment().toString();
+    $("#current-date").text(todaysDate);
+}
+
+function forecastDayOne(){
+
+}
+
+function forecastDayTwo(){
+    
+}
+
+function forecastDayThree(){
+    
+}
+
+function forecastDayFour(){
+    
+}
+
+function forecastDayFive(){
+    
+}
+
+
 $('#search-button').on("click", function (e) {
     e.preventDefault();
     generateCoordinates();
+    currentDateDetails();
 });
 
 
