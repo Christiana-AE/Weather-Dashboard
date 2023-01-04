@@ -16,14 +16,33 @@ function generateCoordinates() {
         var lat = response[0].lat;
         var lon = response[0].lon;
         var queryURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIKeys;
-        $.ajax(queryURL).then(function (response) {
-            console.log(response);
-            // console.log(response.list[0].main.temp);
-            // console.log(response.list[0].list.main.temp);
-            //  var date = response.list.dt_txt;
-            // var temperature = response.list.main.temp;
-            // var wind = response.list.main.wind;
-            //var humidity = response.list.main.humidity;
+        $.ajax(queryURL).then(function (data) {
+            console.log(data);
+            console.log(data.list[1].dt_txt);
+
+
+
+
+            // Reference values of items on the list 
+
+            // console.log(data.list[0].main.temp);
+            //  var date = data.list.dt_txt;
+            // var temperature = data.list.main.temp;
+            // var wind = data.list.main.wind;
+            //var humidity = data.list.main.humidity;
+
+           
+           // Change the date on the API from a String to a Date Object
+            var apiDate = data.list[1].dt_txt;
+            var apiDateFormat = new Date(apiDate + 'Z');
+            var justDMY = new Date(apiDate.replace(/-/g,"/"));
+            console.log(apiDateFormat.getTime() === justDMY.getTime());
+            
+            var dayOneDate = moment().add(1, "days");
+            var dayOneDateFormatted = dayOneDate.format("YYYY-MM-DD");
+            console.log(dayOneDateFormatted);
+
+
         });
     });
 
@@ -95,6 +114,11 @@ function forecastDayFive() {
     $("#day-five-date").text(dayFiveDateFormatted);
 }
 
+// Get data for Temp
+
+// Get data for Wind
+
+// Get data for Humidity
 
 $('#search-button').on("click", function (e) {
     e.preventDefault();
