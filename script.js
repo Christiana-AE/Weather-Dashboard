@@ -120,17 +120,38 @@ function generateCoordinates() {
 
             //-------------------------------------------------------------------------------------------------------------------------------------------//
 
-
             // Details for day three forecast
             var dayThreeDate = moment().add(3, "days");
             var dayThreeDateFormatted = dayThreeDate.format("DD/MM/YYYY");
             $("#day-three-date").text(dayThreeDateFormatted);
 
+            var dayThreeDateString = dayThreeDate.format("YYYY-MM-DD").toString();
+            var tempArrayThree = [];
+            var windArrayThree = [];
+            var humidityArrayThree = [];
+
+            for (var i = 0; i < data.list.length; i++) {
+                var APIDateText = data.list[i].dt_txt;
+                var APIDateTextSplit = APIDateText.split(" ")[0];
+
+                if (APIDateTextSplit === dayThreeDateString) {
+                    var temperature = data.list[i].main.temp;
+                    var wind = data.list[i].wind.speed;
+                    var humidity = data.list[i].main.humidity;
+                    tempArrayThree.push(temperature);
+                    windArrayThree.push(wind);
+                    humidityArrayThree.push(humidity)
+                }
+            }
+
             // Temp Day 3
+            $("#day3-temperature").text(tempArrayThree[0] + " K")
 
             // Wind Day 3
+            $("#day3-wind").text(windArrayThree[0] + ' KPH');
 
             // Humidity Day 3
+            $("#day3-humidity").text(humidityArrayThree[0] + ' %');
 
             //-------------------------------------------------------------------------------------------------------------------------------------------//
 
@@ -139,11 +160,33 @@ function generateCoordinates() {
             var dayFourDateFormatted = dayFourDate.format("DD/MM/YYYY");
             $("#day-four-date").text(dayFourDateFormatted);
 
+            var dayFourDateString = dayThreeDate.format("YYYY-MM-DD").toString();
+            var tempArrayFour = [];
+            var windArrayFour = [];
+            var humidityArrayFour = [];
+
+            for (var i = 0; i < data.list.length; i++) {
+                var APIDateText = data.list[i].dt_txt;
+                var APIDateTextSplit = APIDateText.split(" ")[0];
+
+                if (APIDateTextSplit === dayFourDateString) {
+                    var temperature = data.list[i].main.temp;
+                    var wind = data.list[i].wind.speed;
+                    var humidity = data.list[i].main.humidity;
+                    tempArrayFour.push(temperature);
+                    windArrayFour.push(wind);
+                    humidityArrayFour.push(humidity)
+                }
+            }
+
             // Temp Day 4
+            $("#day4-temperature").text(tempArrayFour[0] + " K")
 
             // Wind Day 4
+            $("#day4-wind").text(windArrayFour[0] + ' KPH');
 
             // Humidity Day 4
+            $("#day4-humidity").text(humidityArrayFour[0] + ' %');
 
             //-------------------------------------------------------------------------------------------------------------------------------------------//
 
@@ -152,19 +195,37 @@ function generateCoordinates() {
             var dayFiveDateFormatted = dayFiveDate.format("DD/MM/YYYY");
             $("#day-five-date").text(dayFiveDateFormatted);
 
+            var dayFiveDateString = dayFiveDate.format("YYYY-MM-DD").toString();
+            var tempArrayFive = [];
+            var windArrayFive = [];
+            var humidityArrayFive = [];
+
+            for (var i = 0; i < data.list.length; i++) {
+                var APIDateText = data.list[i].dt_txt;
+                var APIDateTextSplit = APIDateText.split(" ")[0];
+
+                if (APIDateTextSplit === dayFiveDateString) {
+                    var temperature = data.list[i].main.temp;
+                    var wind = data.list[i].wind.speed;
+                    var humidity = data.list[i].main.humidity;
+                    tempArrayFive.push(temperature);
+                    windArrayFive.push(wind);
+                    humidityArrayFive.push(humidity)
+                }
+            }
+
             // Temp Day 5
+            $("#day5-temperature").text(tempArrayFive[0] + " K")
 
             // Wind Day 5
+            $("#day5-wind").text(windArrayFive[0] + ' KPH');
 
             // Humidity Day 5
+            $("#day5-humidity").text(humidityArrayFive[0] + ' %');
 
 
 
             //-------------------------------------------------------------------------------------------------------------------------------------------//
-
-
-
-
 
         });
     });
