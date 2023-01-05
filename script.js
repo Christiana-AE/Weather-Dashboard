@@ -7,8 +7,8 @@ var todaysDate = moment();
 
 // Generate the details for longitude and latitude and pass it to the URL to find city details
 function generateCoordinates() {
-    // perform synchronous functions 
 
+    // perform synchronous functions 
     cityName = $('#search-input').val();
     var lon_lat_URL = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&appid=" + APIKeys;
 
@@ -18,29 +18,152 @@ function generateCoordinates() {
         var queryURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIKeys;
         $.ajax(queryURL).then(function (data) {
             console.log(data);
-            console.log(data.list[1].dt_txt);
 
 
+            ///////////////////////////////////////////////////////////////////
+
+            // Details for current day weather conditions
+
+            var todaysDateFormatted = todaysDate.format("DD/MM/YYYY");
+            $("#current-date").text("(" + todaysDateFormatted + ")");
 
 
-            // Reference values of items on the list 
+            // temperature current
+            // var todayDateString = todaysDate.format("YYYY-MM-DD").toString();
+            // for (var i = 0; i < data.list.length; i++) {
+            //     var APIDateText = data.list[i].dt_txt;
+            //     var APIDateTextSplit = APIDateText.split(" ")[0];
+            //     var tempArray = [];
+            //     if (APIDateTextSplit === todayDateString) {
+            //         var temperature = data.list[i].main.temp;
+            //         var wind = data.list[i].main.wind;
+            //         tempArray.push(temperature);
+            //         console.log(tempArray);
+            //     }
+            // }
 
-            // console.log(data.list[0].main.temp);
-            //  var date = data.list.dt_txt;
-            // var temperature = data.list.main.temp;
-            // var wind = data.list.main.wind;
-            //var humidity = data.list.main.humidity;
+            // // Wind Current
 
-           
-           // Change the date on the API from a String to a Date Object
-            var apiDate = data.list[1].dt_txt;
-            var apiDateFormat = new Date(apiDate + 'Z');
-            var justDMY = new Date(apiDate.replace(/-/g,"/"));
-            console.log(apiDateFormat.getTime() === justDMY.getTime());
-            
+            // // Humidity Current 
+
+
+            //-------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+            // Details for day one forecast
             var dayOneDate = moment().add(1, "days");
-            var dayOneDateFormatted = dayOneDate.format("YYYY-MM-DD");
-            console.log(dayOneDateFormatted);
+            var dayOneDateFormatted = dayOneDate.format("DD/MM/YYYY");
+            $("#day-one-date").text(dayOneDateFormatted);
+
+            var dayOneDateString = dayOneDate.format("YYYY-MM-DD").toString();
+            var tempArray = [];
+            var windArray = [];
+            var humidityArray = [];
+            for (var i = 0; i < data.list.length; i++) {
+                var APIDateText = data.list[i].dt_txt;
+                var APIDateTextSplit = APIDateText.split(" ")[0];
+
+                if (APIDateTextSplit === dayOneDateString) {
+                    var temperature = data.list[i].main.temp;
+                    var wind = data.list[i].wind.speed;
+                    var humidity = data.list[i].main.humidity;
+                    tempArray.push(temperature);
+                    windArray.push(wind);
+                    humidityArray.push(humidity)
+                }
+            }
+
+            // Temp Day 1
+            $("#day1-temperature").text(tempArray[0] + " K");
+
+            // Wind Day 1
+            $("#day1-wind").text(windArray[0] + ' KPH');
+
+            // Humidity Day 1
+            $("#day1-humidity").text(humidityArray[0] + ' %');
+
+            //-------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+            // Details for day two forecast
+            var dayTwoDate = moment().add(2, "days");
+            var dayTwoDateFormatted = dayTwoDate.format("DD/MM/YYYY");
+            $("#day-two-date").text(dayTwoDateFormatted);
+
+
+            var dayTwoDateString = dayTwoDate.format("YYYY-MM-DD").toString();
+            var tempArrayTwo = [];
+            var windArrayTwo = [];
+            var humidityArrayTwo = [];
+            for (var i = 0; i < data.list.length; i++) {
+                var APIDateText = data.list[i].dt_txt;
+                var APIDateTextSplit = APIDateText.split(" ")[0];
+
+                if (APIDateTextSplit === dayTwoDateString) {
+                    var temperature = data.list[i].main.temp;
+                    var wind = data.list[i].wind.speed;
+                    var humidity = data.list[i].main.humidity;
+                    tempArrayTwo.push(temperature);
+                    windArrayTwo.push(wind);
+                    humidityArrayTwo.push(humidity)
+                }
+            }
+
+            // Temp Day 2
+            $("#day2-temperature").text(tempArrayTwo[0] + " K")
+
+            // Wind Day 2
+            $("#day2-wind").text(windArrayTwo[0] + ' KPH');
+
+            // Humidity Day 2
+            $("#day2-humidity").text(humidityArrayTwo[0] + ' %');
+
+            //-------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+            // Details for day three forecast
+            var dayThreeDate = moment().add(3, "days");
+            var dayThreeDateFormatted = dayThreeDate.format("DD/MM/YYYY");
+            $("#day-three-date").text(dayThreeDateFormatted);
+
+            // Temp Day 3
+
+            // Wind Day 3
+
+            // Humidity Day 3
+
+            //-------------------------------------------------------------------------------------------------------------------------------------------//
+
+            // Details for day four forecast
+            var dayFourDate = moment().add(4, "days");
+            var dayFourDateFormatted = dayFourDate.format("DD/MM/YYYY");
+            $("#day-four-date").text(dayFourDateFormatted);
+
+            // Temp Day 4
+
+            // Wind Day 4
+
+            // Humidity Day 4
+
+            //-------------------------------------------------------------------------------------------------------------------------------------------//
+
+            // Details for day five forecast
+            var dayFiveDate = moment().add(5, "days");
+            var dayFiveDateFormatted = dayFiveDate.format("DD/MM/YYYY");
+            $("#day-five-date").text(dayFiveDateFormatted);
+
+            // Temp Day 5
+
+            // Wind Day 5
+
+            // Humidity Day 5
+
+
+
+            //-------------------------------------------------------------------------------------------------------------------------------------------//
+
+
+
 
 
         });
@@ -69,67 +192,13 @@ function renderPriorCitySearch() {
         $("#buttons-view").append(createButton);
 
     }
-        
 }
 
-// Details for current day weather conditions
-function currentDateDetails() {
-    var todaysDateFormatted = todaysDate.format("DD/MM/YYYY");
-    $("#current-date").text("(" + todaysDateFormatted + ")");
-}
-
-// Details for day one forecast
-function forecastDayOne() {
-    var dayOneDate = moment().add(1, "days");
-    var dayOneDateFormatted = dayOneDate.format("DD/MM/YYYY");
-    $("#day-one-date").text(dayOneDateFormatted);
-
-}
-
-// Details for day two forecast
-function forecastDayTwo() {
-    var dayTwoDate = moment().add(2, "days");
-    var dayTwoDateFormatted = dayTwoDate.format("DD/MM/YYYY");
-    $("#day-two-date").text(dayTwoDateFormatted);
-}
-
-// Details for day three forecast
-function forecastDayThree() {
-    var dayThreeDate = moment().add(3, "days");
-    var dayThreeDateFormatted= dayThreeDate.format("DD/MM/YYYY");
-    $("#day-three-date").text(dayThreeDateFormatted);
-}
-
-// Details for day four forecast
-function forecastDayFour() {
-    var dayFourDate = moment().add(4, "days");
-    var dayFourDateFormatted = dayFourDate.format("DD/MM/YYYY");
-    $("#day-four-date").text(dayFourDateFormatted);
-}
-
-// Details for day five forecast
-function forecastDayFive() {
-    var dayFiveDate = moment().add(5, "days");
-    var dayFiveDateFormatted = dayFiveDate.format("DD/MM/YYYY");
-    $("#day-five-date").text(dayFiveDateFormatted);
-}
-
-// Get data for Temp
-
-// Get data for Wind
-
-// Get data for Humidity
 
 $('#search-button').on("click", function (e) {
     e.preventDefault();
     generateCoordinates();
-    currentDateDetails();
-    forecastDayOne();
-    forecastDayTwo();
-    forecastDayThree();
-    forecastDayFour();
-    forecastDayFive();
-    
+
 });
 
 
