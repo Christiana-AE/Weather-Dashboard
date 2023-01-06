@@ -9,6 +9,8 @@ The user of the application is presented with data on: The current and forecaste
 
 ## Deployment Link
 
+https://christiana-ae.github.io/Weather-Dashboard/
+
 ## Screenshot Link
 styles\weatherDashboard.JPG
 
