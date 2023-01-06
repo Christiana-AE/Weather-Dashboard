@@ -10,7 +10,7 @@ function generateCoordinates() {
 
     // perform synchronous functions 
     cityName = $('#search-input').val();
-    var lon_lat_URL = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&appid=" + APIKeys;
+    var lon_lat_URL = "https://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&appid=" + APIKeys;
 
     $.when($.ajax(lon_lat_URL)).then(function (response) {
         var lat = response[0].lat;
