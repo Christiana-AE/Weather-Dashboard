@@ -46,7 +46,7 @@ function generateCoordinates() {
             }
 
             var icon = weatherImage[0];
-            var iconURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
+            var iconURL = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
 
             // Temp
             $("#current-temperature").text(tempArrayCurrent[0] + " K");
