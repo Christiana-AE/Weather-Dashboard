@@ -20,35 +20,47 @@ function generateCoordinates() {
             console.log(data);
 
 
-            ///////////////////////////////////////////////////////////////////
-
             // Details for current day weather conditions
-
             var todaysDateFormatted = todaysDate.format("DD/MM/YYYY");
             $("#current-date").text("(" + todaysDateFormatted + ")");
 
+            var todayDateString = todaysDate.format("YYYY-MM-DD").toString();
+            var tempArrayCurrent = [];
+            var windArrayCurrent = [];
+            var humidityArrayCurrent = [];
+            var weatherImage = [];
+            for (var i = 0; i < data.list.length; i++) {
+                var APIDateText = data.list[i].dt_txt;
+                var APIDateTextSplit = APIDateText.split(" ")[0];
 
-            // temperature current
-            // var todayDateString = todaysDate.format("YYYY-MM-DD").toString();
-            // for (var i = 0; i < data.list.length; i++) {
-            //     var APIDateText = data.list[i].dt_txt;
-            //     var APIDateTextSplit = APIDateText.split(" ")[0];
-            //     var tempArray = [];
-            //     if (APIDateTextSplit === todayDateString) {
-            //         var temperature = data.list[i].main.temp;
-            //         var wind = data.list[i].main.wind;
-            //         tempArray.push(temperature);
-            //         console.log(tempArray);
-            //     }
-            // }
+                if (APIDateTextSplit === todayDateString) {
+                    var temperature = data.list[i].main.temp;
+                    var wind = data.list[i].wind.speed;
+                    var humidity = data.list[i].main.humidity;
+                    var weatherIcon = data.list[i].weather[0].icon;
+                    tempArrayCurrent.push(temperature);
+                    windArrayCurrent.push(wind);
+                    humidityArrayCurrent.push(humidity);
+                    weatherImage.push(weatherIcon);
+                }
+            }
 
-            // // Wind Current
+            var icon = weatherImage[0];
+            var iconURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
 
-            // // Humidity Current 
+            // Temp
+            $("#current-temperature").text(tempArrayCurrent[0] + " K");
 
+            // Wind Current
+            $("#current-wind").text(windArrayCurrent[0] + ' KPH');
 
-            //-------------------------------------------------------------------------------------------------------------------------------------------//
+            // Humidity Current 
+            $("#current-humidity").text(humidityArrayCurrent[0] + ' %');
 
+            // Weather Icon
+            $("#current-weather-image").attr("src", iconURL);
+
+            //-------------------------------------------------------------------------------------------------------------------------------------------
 
             // Details for day one forecast
             var dayOneDate = moment().add(1, "days");
@@ -59,6 +71,7 @@ function generateCoordinates() {
             var tempArray = [];
             var windArray = [];
             var humidityArray = [];
+            var weatherImageOne = [];
             for (var i = 0; i < data.list.length; i++) {
                 var APIDateText = data.list[i].dt_txt;
                 var APIDateTextSplit = APIDateText.split(" ")[0];
@@ -67,11 +80,15 @@ function generateCoordinates() {
                     var temperature = data.list[i].main.temp;
                     var wind = data.list[i].wind.speed;
                     var humidity = data.list[i].main.humidity;
+                    var weatherIcon = data.list[i].weather.icon;
                     tempArray.push(temperature);
                     windArray.push(wind);
-                    humidityArray.push(humidity)
+                    humidityArray.push(humidity);
+                    weatherImageOne.push(weatherIcon);
                 }
             }
+
+            var icon = weatherImageOne[0];
 
             // Temp Day 1
             $("#day1-temperature").text(tempArray[0] + " K");
@@ -82,8 +99,10 @@ function generateCoordinates() {
             // Humidity Day 1
             $("#day1-humidity").text(humidityArray[0] + ' %');
 
-            //-------------------------------------------------------------------------------------------------------------------------------------------//
+            // Weather Icon
+            $("#card-img-one").attr("src", iconURL);
 
+            //-------------------------------------------------------------------------------------------------------------------------------------------
 
             // Details for day two forecast
             var dayTwoDate = moment().add(2, "days");
@@ -95,6 +114,7 @@ function generateCoordinates() {
             var tempArrayTwo = [];
             var windArrayTwo = [];
             var humidityArrayTwo = [];
+            var weatherImageTwo = [];
             for (var i = 0; i < data.list.length; i++) {
                 var APIDateText = data.list[i].dt_txt;
                 var APIDateTextSplit = APIDateText.split(" ")[0];
@@ -103,11 +123,15 @@ function generateCoordinates() {
                     var temperature = data.list[i].main.temp;
                     var wind = data.list[i].wind.speed;
                     var humidity = data.list[i].main.humidity;
+                    var weatherIcon = data.list[i].weather.icon;
                     tempArrayTwo.push(temperature);
                     windArrayTwo.push(wind);
-                    humidityArrayTwo.push(humidity)
+                    humidityArrayTwo.push(humidity);
+                    weatherImageTwo.push(weatherIcon);
                 }
             }
+
+            var icon = weatherImageTwo[0];
 
             // Temp Day 2
             $("#day2-temperature").text(tempArrayTwo[0] + " K")
@@ -118,7 +142,10 @@ function generateCoordinates() {
             // Humidity Day 2
             $("#day2-humidity").text(humidityArrayTwo[0] + ' %');
 
-            //-------------------------------------------------------------------------------------------------------------------------------------------//
+            // Weather Icon
+            $("#card-img-two").attr("src", iconURL);
+
+            //-------------------------------------------------------------------------------------------------------------------------------------------
 
             // Details for day three forecast
             var dayThreeDate = moment().add(3, "days");
@@ -129,6 +156,7 @@ function generateCoordinates() {
             var tempArrayThree = [];
             var windArrayThree = [];
             var humidityArrayThree = [];
+            var weatherImageThree = [];
 
             for (var i = 0; i < data.list.length; i++) {
                 var APIDateText = data.list[i].dt_txt;
@@ -138,11 +166,14 @@ function generateCoordinates() {
                     var temperature = data.list[i].main.temp;
                     var wind = data.list[i].wind.speed;
                     var humidity = data.list[i].main.humidity;
+                    var weatherIcon = data.list[i].weather.icon;
                     tempArrayThree.push(temperature);
                     windArrayThree.push(wind);
-                    humidityArrayThree.push(humidity)
+                    humidityArrayThree.push(humidity);
+                    weatherImageThree.push(weatherIcon);
                 }
             }
+            var icon = weatherImageThree[0];
 
             // Temp Day 3
             $("#day3-temperature").text(tempArrayThree[0] + " K")
@@ -153,7 +184,10 @@ function generateCoordinates() {
             // Humidity Day 3
             $("#day3-humidity").text(humidityArrayThree[0] + ' %');
 
-            //-------------------------------------------------------------------------------------------------------------------------------------------//
+            // Weather Icon
+            $("#card-img-three").attr("src", iconURL);
+
+            //-------------------------------------------------------------------------------------------------------------------------------------------
 
             // Details for day four forecast
             var dayFourDate = moment().add(4, "days");
@@ -164,6 +198,7 @@ function generateCoordinates() {
             var tempArrayFour = [];
             var windArrayFour = [];
             var humidityArrayFour = [];
+            var weatherImageFour = [];
 
             for (var i = 0; i < data.list.length; i++) {
                 var APIDateText = data.list[i].dt_txt;
@@ -173,12 +208,14 @@ function generateCoordinates() {
                     var temperature = data.list[i].main.temp;
                     var wind = data.list[i].wind.speed;
                     var humidity = data.list[i].main.humidity;
+                    var weatherIcon = data.list[i].weather.icon;
                     tempArrayFour.push(temperature);
                     windArrayFour.push(wind);
-                    humidityArrayFour.push(humidity)
+                    humidityArrayFour.push(humidity);
+                    weatherImageFour.push(weatherIcon);
                 }
             }
-
+            var icon = weatherImageFour[0];
             // Temp Day 4
             $("#day4-temperature").text(tempArrayFour[0] + " K")
 
@@ -188,7 +225,10 @@ function generateCoordinates() {
             // Humidity Day 4
             $("#day4-humidity").text(humidityArrayFour[0] + ' %');
 
-            //-------------------------------------------------------------------------------------------------------------------------------------------//
+            // Weather Icon
+            $("#card-img-four").attr("src", iconURL);
+
+            //-------------------------------------------------------------------------------------------------------------------------------------------
 
             // Details for day five forecast
             var dayFiveDate = moment().add(5, "days");
@@ -199,6 +239,7 @@ function generateCoordinates() {
             var tempArrayFive = [];
             var windArrayFive = [];
             var humidityArrayFive = [];
+            var weatherImageFive = [];
 
             for (var i = 0; i < data.list.length; i++) {
                 var APIDateText = data.list[i].dt_txt;
@@ -208,11 +249,14 @@ function generateCoordinates() {
                     var temperature = data.list[i].main.temp;
                     var wind = data.list[i].wind.speed;
                     var humidity = data.list[i].main.humidity;
+                    var weatherIcon = data.list[i].weather.icon;
                     tempArrayFive.push(temperature);
                     windArrayFive.push(wind);
-                    humidityArrayFive.push(humidity)
+                    humidityArrayFive.push(humidity);
+                    weatherImageFive.push(weatherIcon);
                 }
             }
+            var icon = weatherImageFive[0];
 
             // Temp Day 5
             $("#day5-temperature").text(tempArrayFive[0] + " K")
@@ -223,9 +267,8 @@ function generateCoordinates() {
             // Humidity Day 5
             $("#day5-humidity").text(humidityArrayFive[0] + ' %');
 
-
-
-            //-------------------------------------------------------------------------------------------------------------------------------------------//
+            // Weather Icon
+            $("#card-img-five").attr("src", iconURL);
 
         });
     });
@@ -255,11 +298,10 @@ function renderPriorCitySearch() {
     }
 }
 
-
+// Set event listener on click
 $('#search-button').on("click", function (e) {
     e.preventDefault();
     generateCoordinates();
-
 });
 
 

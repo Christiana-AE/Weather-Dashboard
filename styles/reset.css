@@ -22,10 +22,10 @@ h1 {
     border-right: solid;
     border-left: solid;
     border-width: 2px;
-    border-color: aliceblue;
+    border-color: #adcae6;
     padding-left: 30px;
     padding-right: 50px;
-    background-color: #F3F4F7;
+    background-color: #ffffff;
 }
 
 .card {
