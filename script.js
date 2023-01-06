@@ -269,7 +269,6 @@ function generateCoordinates() {
 
             // Weather Icon
             $("#card-img-five").attr("src", iconURL);
-
         });
     });
 

@@ -7,7 +7,7 @@ The weather dashboard application has been created to enable users to search for
 ## Data 
 The user of the application is presented with data on: The current and forecasted dates, an icon representing the weather conditions, the temperature, humidity and wind speeds of the respectively searched locations. The data presented to the users is generated from a third party API, Open Weather: https://openweathermap.org/api
 
-## Deployment 
+## Deployment Link
 
 ## Screenshot Link
 styles\weatherDashboard.JPG
