@@ -11,6 +11,7 @@ The user of the application is presented with data on: The current and forecaste
 
 ## Screenshot Link
 styles\weatherDashboard.JPG
+
 https://github.com/Christiana-AE/Weather-Dashboard/blob/main/styles/weatherDashboard.JPG
 
 
