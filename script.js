@@ -80,7 +80,7 @@ function generateCoordinates() {
                     var temperature = data.list[i].main.temp;
                     var wind = data.list[i].wind.speed;
                     var humidity = data.list[i].main.humidity;
-                    var weatherIcon = data.list[i].weather.icon;
+                    var weatherIcon = data.list[i].weather[0].icon;
                     tempArray.push(temperature);
                     windArray.push(wind);
                     humidityArray.push(humidity);
@@ -89,6 +89,7 @@ function generateCoordinates() {
             }
 
             var icon = weatherImageOne[0];
+            var iconURL = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
 
             // Temp Day 1
             $("#day1-temperature").text(tempArray[0] + " K");
@@ -123,7 +124,7 @@ function generateCoordinates() {
                     var temperature = data.list[i].main.temp;
                     var wind = data.list[i].wind.speed;
                     var humidity = data.list[i].main.humidity;
-                    var weatherIcon = data.list[i].weather.icon;
+                    var weatherIcon = data.list[i].weather[0].icon;
                     tempArrayTwo.push(temperature);
                     windArrayTwo.push(wind);
                     humidityArrayTwo.push(humidity);
@@ -132,6 +133,7 @@ function generateCoordinates() {
             }
 
             var icon = weatherImageTwo[0];
+            var iconURL = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
 
             // Temp Day 2
             $("#day2-temperature").text(tempArrayTwo[0] + " K")
@@ -166,7 +168,7 @@ function generateCoordinates() {
                     var temperature = data.list[i].main.temp;
                     var wind = data.list[i].wind.speed;
                     var humidity = data.list[i].main.humidity;
-                    var weatherIcon = data.list[i].weather.icon;
+                    var weatherIcon = data.list[i].weather[0].icon;
                     tempArrayThree.push(temperature);
                     windArrayThree.push(wind);
                     humidityArrayThree.push(humidity);
@@ -174,6 +176,7 @@ function generateCoordinates() {
                 }
             }
             var icon = weatherImageThree[0];
+            var iconURL = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
 
             // Temp Day 3
             $("#day3-temperature").text(tempArrayThree[0] + " K")
@@ -208,7 +211,7 @@ function generateCoordinates() {
                     var temperature = data.list[i].main.temp;
                     var wind = data.list[i].wind.speed;
                     var humidity = data.list[i].main.humidity;
-                    var weatherIcon = data.list[i].weather.icon;
+                    var weatherIcon = data.list[i].weather[0].icon;
                     tempArrayFour.push(temperature);
                     windArrayFour.push(wind);
                     humidityArrayFour.push(humidity);
@@ -216,6 +219,8 @@ function generateCoordinates() {
                 }
             }
             var icon = weatherImageFour[0];
+            var iconURL = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
+
             // Temp Day 4
             $("#day4-temperature").text(tempArrayFour[0] + " K")
 
@@ -249,7 +254,7 @@ function generateCoordinates() {
                     var temperature = data.list[i].main.temp;
                     var wind = data.list[i].wind.speed;
                     var humidity = data.list[i].main.humidity;
-                    var weatherIcon = data.list[i].weather.icon;
+                    var weatherIcon = data.list[i].weather[0].icon;
                     tempArrayFive.push(temperature);
                     windArrayFive.push(wind);
                     humidityArrayFive.push(humidity);
@@ -257,6 +262,7 @@ function generateCoordinates() {
                 }
             }
             var icon = weatherImageFive[0];
+            var iconURL = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
 
             // Temp Day 5
             $("#day5-temperature").text(tempArrayFive[0] + " K")
